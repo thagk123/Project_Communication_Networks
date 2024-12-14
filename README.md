@@ -20,3 +20,21 @@ DeleteMessage: O client μπορεί να διαγράψει ενα συγκεκ
 και την επικοινωνία ενός server μπορούν να δημιουργούν λογαριασμούς και να επικοινωνούν μεταξύ τους (οι Clients)
 στέλνοντας, διαβάζοντας και διαγράφοντας μηνύματα. Ακόμα μπορούν να δούν και ποίοι λογαριασμοί υπάρχουν στο σύστημα.
 Τα .jar αρχεία λειτουργούν κανονικά.
+
+For this project, I used RMI technology. In the src folder, the following components are included:
+Server_ClientInt Interface: This interface facilitates communication between the client and the server. It contains the methods used for implementing the connection and handling the client requests.
+Additionally, the src folder contains the following classes:
+RemoteServer_Client: This is the implementation of the Server_ClientInt interface on the server side. All the methods defined in Server_ClientInt are implemented here.
+MessagingServer: This class is responsible for creating the server.
+MessagingClient: In this class, the client initiates communication with the server and submits a request. Depending on the input provided by the client, certain checks are performed, and a corresponding response is displayed to the client.
+Account and Message: These classes support the project's functionality by managing system accounts and messages more effectively.
+The operations implemented in the Server_ClientInt interface include:
+CreateAccount: The client can create an account and receive a token, which is used for subsequent requests.
+ShowAccounts: The client can view the account names present in the system.
+SendMessage: The client can send a message to another client (sending messages to oneself is not allowed!).
+ShowInbox: The client can view their received messages.
+ReadMessage: The client can read a specific message from their inbox.
+DeleteMessage: The client can delete a specific message from their inbox.
+General Idea of the Project
+The project creates a system where multiple clients can interact with the help of a server. Clients can create accounts and communicate with each other by sending, reading, and deleting messages. They can also view the list of accounts in the system.
+The .jar files function correctly.
