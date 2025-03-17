@@ -24,8 +24,11 @@ DeleteMessage: O client μπορεί να διαγράψει ενα συγκεκ
 στέλνοντας, διαβάζοντας και διαγράφοντας μηνύματα. Ακόμα μπορούν να δούν και ποίοι λογαριασμοί υπάρχουν στο σύστημα.
 Τα .jar αρχεία λειτουργούν κανονικά.
 
-For this project, I used RMI technology. In the src folder, the following components are included:
+For this project, I used RMI technology. 
+
+In the src folder, the following components are included:
 Server_ClientInt Interface: This interface facilitates communication between the client and the server. It contains the methods used for implementing the connection and handling the client requests.
+
 Additionally, the src folder contains the following classes:
 RemoteServer_Client: This is the implementation of the Server_ClientInt interface on the server side. All the methods defined in Server_ClientInt are implemented here.
 MessagingServer: This class is responsible for creating the server.
@@ -38,6 +41,8 @@ SendMessage: The client can send a message to another client (sending messages t
 ShowInbox: The client can view their received messages.
 ReadMessage: The client can read a specific message from their inbox.
 DeleteMessage: The client can delete a specific message from their inbox.
+
 General Idea of the Project
 The project creates a system where multiple clients can interact with the help of a server. Clients can create accounts and communicate with each other by sending, reading, and deleting messages. They can also view the list of accounts in the system.
+
 The .jar files function correctly.
