@@ -19,6 +19,7 @@ SendMessage: Ο client στέλνει ενα μήνυμα σε κάποιον ά
 ShowInbox: Ο client μπορεί να δει τα μηνύματα του.
 ReadMessage: Ο client μπορεί να διαβάσει ενα συγκεκριμένο μήνυμα απο αυτά που έχει λάβει.
 DeleteMessage: O client μπορεί να διαγράψει ενα συγκεκριμένο μήνυμα απο αυτά που έχει λάβει.
+
 Γενικότερα η ιδέα του project είναι ότι δημιουργείται ένα σύστημα όπου πολλοί και διαφορετικοί clients με τη βοήθεια
 και την επικοινωνία ενός server μπορούν να δημιουργούν λογαριασμούς και να επικοινωνούν μεταξύ τους (οι Clients)
 στέλνοντας, διαβάζοντας και διαγράφοντας μηνύματα. Ακόμα μπορούν να δούν και ποίοι λογαριασμοί υπάρχουν στο σύστημα.
@@ -42,7 +43,7 @@ ShowInbox: The client can view their received messages.
 ReadMessage: The client can read a specific message from their inbox.
 DeleteMessage: The client can delete a specific message from their inbox.
 
-General Idea of the Project
+General Idea of the Project:
 The project creates a system where multiple clients can interact with the help of a server. Clients can create accounts and communicate with each other by sending, reading, and deleting messages. They can also view the list of accounts in the system.
 
 The .jar files function correctly.
