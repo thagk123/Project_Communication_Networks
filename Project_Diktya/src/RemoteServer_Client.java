@@ -1,16 +1,21 @@
+package com.example.remoteserver;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RemoteServer_Client extends UnicastRemoteObject implements Server_ClientInt  {
+    private final Map<Integer,Account> accs = new HashMap<>();
+    
     public RemoteServer_Client() throws RemoteException {
         super();
     }
 
-    public HashMap<Integer,Account> getAccs() throws RemoteException {return accs;}
+    public Map<Integer,Account> getAccs() throws RemoteException {return accs;}
 
-    public int CreateAccount(String username) throws RemoteException{
+    public int createAccount(String username) throws RemoteException{
         int authToken;
         int i=0;
         int min = 0;
@@ -29,7 +34,7 @@ public class RemoteServer_Client extends UnicastRemoteObject implements Server_C
         return authToken;
     }
 
-    public String SendMessage(String message, String username, int authToken,Account acc) throws RemoteException{
+    public String sendMessage(String message, String username, int authToken,Account acc) throws RemoteException{
          Message mess=new Message(accs.get(authToken).getUsername(),username,message,acc);
         for (Account account : accs.values()) {
             if (account.getUsername().equals(username)){
@@ -40,13 +45,13 @@ public class RemoteServer_Client extends UnicastRemoteObject implements Server_C
          return "OK";
     }
 
-    public ArrayList<Message> ShowInbox(int authToken) throws RemoteException{
+    public List<Message> showInbox(int authToken) throws RemoteException{
         return accs.get(authToken).getMessageBox();
     }
 
-    public String ReadMessage(int authToken, int message_id) throws RemoteException{
+    public String readMessage(int authToken, int messageId) throws RemoteException{
        for (int i=0;i<accs.get(authToken).getMessageBox().size();i++){
-          if(accs.get(authToken).getMessageBox().get(i).getId()==message_id){
+          if(accs.get(authToken).getMessageBox().get(i).getId()==messageId){
               String a="("+accs.get(authToken).getMessageBox().get(i).getSender()+")  "+accs.get(authToken).getMessageBox().get(i).getBody();
               accs.get(authToken).getMessageBox().get(i).setRead(true);
               return a;
@@ -55,9 +60,9 @@ public class RemoteServer_Client extends UnicastRemoteObject implements Server_C
        return "Message ID does not exist";
     }
 
-    public String  DeleteMessage(int authToken, int message_id) throws RemoteException{
+    public String  deleteMessage(int authToken, int messageId) throws RemoteException{
         for (int i=0;i<accs.get(authToken).getMessageBox().size();i++){
-            if(accs.get(authToken).getMessageBox().get(i).getId()==message_id){
+            if(accs.get(authToken).getMessageBox().get(i).getId()==messageId){
                 accs.get(authToken).deleteMessage(accs.get(authToken).getMessageBox().get(i));
                 return "OK";
             }
