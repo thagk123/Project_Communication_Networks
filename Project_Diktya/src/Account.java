@@ -1,14 +1,16 @@
-import java.lang.reflect.Array;
+package com.example;
+
+import java.util.List;
 import java.util.ArrayList;
 
 public class Account implements java.io.Serializable{
-    private String username;
-    private int authToken;
-    private ArrayList<Message> messageBox;
+    private static final long serialVersionUID = 1L;
+    
+    private final String username;
+    private final List<Message> messageBox;
 
     public Account(String username, int authToken) {
         this.username=username;
-        this.authToken=authToken;
         this.messageBox= new ArrayList<>();
     }
 
@@ -22,5 +24,5 @@ public class Account implements java.io.Serializable{
 
     public String getUsername() {return username;}
 
-    public ArrayList<Message> getMessageBox() {return messageBox;}
+    public List<Message> getMessageBox() {return messageBox;}
 }
